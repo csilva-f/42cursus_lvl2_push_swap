@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:58:44 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/10 23:47:56 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/11 23:02:01 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,16 @@ void	sort_3(t_stack *s_a)
 
 void	sort_more_than_3(t_stack *s_a, t_stack *s_b)
 {
+	t_stack	*temp;
+
 	reduce_sa_to_3(s_a, s_b);
 	sort_3(s_a);
-
+	temp = s_b;
+	while (count_stack_nbrs(s_b) > 0)
+	{
+		find_pos_in_sa(s_a, s_b);
+	}
+	
 }
 
 void	push_swap(t_stack *s_a, t_stack *s_b)

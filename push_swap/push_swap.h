@@ -6,7 +6,7 @@
 /*   By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:46:42 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/10 23:58:05 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/11 23:02:19 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ void		apply_rrb(t_stack *s_b, int is_rrb);
 void		apply_rrr(t_stack *s_a, t_stack *s_b);
 void		apply_pa(t_stack *s_a, t_stack *s_b);
 void		apply_pb(t_stack *s_a, t_stack *s_b);
-
 void		reduce_sa_to_3(t_stack *s_a, t_stack *s_b);
+void		positions(t_stack *list);
+void		fill_right_pos_sa(t_stack *s_a, t_stack *s_b);
 
 void		sort_more_than_3(t_stack *s_a, t_stack *s_b);
 void		push_swap(t_stack *s_a, t_stack *s_b);
