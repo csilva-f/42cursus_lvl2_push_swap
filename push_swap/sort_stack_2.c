@@ -6,13 +6,12 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 23:28:35 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/11 23:02:29 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/14 14:38:46 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
-#include <limits.h>
 
 void	reduce_sa_to_3(t_stack *s_a, t_stack *s_b)
 {
@@ -51,29 +50,54 @@ void	positions(t_stack *list)
 	}
 }
 
-void	find_pos_sa(t_stack *s_a, int index_b)
+int	find_pos2(int t_ind, int t_pos, int *sa_ind, int ind_b)
+{
+	int	sa_pos;
+
+	sa_pos = -1;
+	*sa_ind = t_ind;
+	sa_pos = t_pos;
+	return (sa_pos);
+}
+
+int	find_pos_sa(t_stack *s_a, int index_b)
 {
 	t_stack	*temp;
+	int		sa_ind;
+	int		sa_pos;
 
 	temp = s_a;
+	sa_ind = INT_MAX;
+	sa_pos = -1;
 	while (temp)
 	{
-		if (temp->index > index_b && temp->index < )
+		if (temp->index > index_b && temp->index < sa_ind)
+			sa_pos = find_pos2(temp->index, temp->posit, &sa_ind, index_b);
+		temp = temp->next;
 	}
+	if (sa_ind == INT_MAX)
+	{
+		temp = s_a;
+		while (temp)
+		{
+			if (temp->index < sa_ind)
+				sa_pos = find_pos2(temp->index, temp->posit, &sa_ind, index_b);
+			temp = temp->next;
+		}
+	}
+	return (sa_pos);
 }
 
 void	fill_right_pos_sa(t_stack *s_a, t_stack *s_b)
 {
 	t_stack	*temp;
-	int		pos_max;
 
 	positions(s_a);
 	positions(s_b);
 	temp = s_b;
-	pos_max = INT_MAX;
 	while (temp)
 	{
 		temp->t_posit = find_pos_sa(s_a, temp->index);
-
+		temp = temp->next;
 	}
 }

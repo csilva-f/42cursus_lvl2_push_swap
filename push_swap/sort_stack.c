@@ -6,12 +6,13 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:58:44 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/11 23:02:01 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:46:09 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
+#include <limits.h>
 
 int	is_sorted(t_stack *s_a)
 {
@@ -60,9 +61,12 @@ void	sort_more_than_3(t_stack *s_a, t_stack *s_b)
 	temp = s_b;
 	while (count_stack_nbrs(s_b) > 0)
 	{
-		find_pos_in_sa(s_a, s_b);
+		fill_right_pos_sa(s_a, s_b);
+		find_cost_to_move(s_b, count_stack_nbrs(s_a));
+		execute_positioning(s_a, s_b);
 	}
-	
+	if (!is_sorted(s_a))
+		reorder(s_a, count_stack_nbrs(s_a), INT_MAX);
 }
 
 void	push_swap(t_stack *s_a, t_stack *s_b)

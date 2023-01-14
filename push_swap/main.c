@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:42:08 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/08 18:16:43 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:18:19 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ void	handle_errors(void)
 {
 	write(2, "Error\n", 6);
 	exit (1);
+}
+
+int	abs(int n)
+{
+	if (n < 0)
+		n *= -1;
+	return (n);
 }
 
 int	check_integers(char *str)
@@ -69,6 +76,6 @@ int	main(int argc, char **argv)
 	s_a = nbrs_to_stack(argc, argv);
 	assign_indexes(s_a, count_stack_nbrs(s_a));
 	s_b = NULL;
-	push_swap(s_a);
+	push_swap(s_a, s_b);
 	return (0);
 }
