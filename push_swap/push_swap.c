@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:42:08 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/15 17:38:33 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:05:12 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,13 @@ int	check_input(int argc, char **argv)
 		argc--;
 	}
 	return (1);
-
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*s_a;
 	t_stack	*s_b;
-	
+
 	if (argc < 2)
 		return (0);
 	if (check_input(argc, argv) == 0)

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: csilva-f <csilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/08 18:15:15 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/10 23:47:03 by csilva-f         ###   ########.fr       */
+/*   Created: 2023/01/15 19:34:39 by csilva-f          #+#    #+#             */
+/*   Updated: 2023/01/15 19:36:16 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "libft/libft.h"
+#include "push_swap_bonus.h"
 
-void	apply_sa(t_stack **s_a, int is_sa)
+void	apply_sa(t_stack **s_a)
 {
 	int	aux;
 
@@ -23,11 +23,9 @@ void	apply_sa(t_stack **s_a, int is_sa)
 	aux = (*s_a)->index;
 	(*s_a)->index = (*s_a)->next->index;
 	(*s_a)->next->index = aux;
-	if (is_sa == 1)
-		write(1, "sa\n", 3);
 }
 
-void	apply_sb(t_stack **s_b, int is_sb)
+void	apply_sb(t_stack **s_b)
 {
 	int	aux;
 
@@ -37,18 +35,15 @@ void	apply_sb(t_stack **s_b, int is_sb)
 	aux = (*s_b)->index;
 	(*s_b)->index = (*s_b)->next->index;
 	(*s_b)->next->index = aux;
-	if (is_sb == 1)
-		write(1, "sb\n", 3);
 }
 
 void	apply_ss(t_stack **s_a, t_stack **s_b)
 {
-	apply_sa(s_a, 0);
-	apply_sb(s_b, 0);
-	write(1, "ss\n", 3);
+	apply_sa(s_a);
+	apply_sb(s_b);
 }
 
-void	apply_ra(t_stack **s_a, int is_ra)
+void	apply_ra(t_stack **s_a)
 {
 	t_stack	*temp_head;
 	t_stack	*temp_tail;
@@ -58,11 +53,9 @@ void	apply_ra(t_stack **s_a, int is_ra)
 	temp_tail = get_last_node(*s_a);
 	temp_head->next = NULL;
 	temp_tail->next = temp_head;
-	if (is_ra == 1)
-		write(1, "ra\n", 3);
 }
 
-void	apply_rb(t_stack **s_b, int is_rb)
+void	apply_rb(t_stack **s_b)
 {
 	t_stack	*temp_head;
 	t_stack	*temp_tail;
@@ -72,6 +65,4 @@ void	apply_rb(t_stack **s_b, int is_rb)
 	temp_tail = get_last_node(*s_b);
 	temp_head->next = NULL;
 	temp_tail->next = temp_head;
-	if (is_rb == 1)
-		write(1, "rb\n", 3);
 }
