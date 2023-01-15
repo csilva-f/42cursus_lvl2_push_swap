@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:40:02 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/14 21:44:56 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:54:21 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	apply_rotate(t_stack **stack, int *cost, int is_sa)
 			(*cost)--;
 		}
 	}
-	
 }
 
 void	apply_sim_rotate(t_stack **s_a, t_stack **s_b, int *ca, int *cb)
@@ -92,22 +91,8 @@ void	execute_positioning(t_stack **s_a, t_stack **s_b)
 		}
 		temp = temp->next;
 	}
-
 	if ((ca < 0 && cb < 0) || (ca > 0 && cb > 0))
 		apply_sim_rotate(s_a, s_b, &ca, &cb);
-	temp = *s_b;
-	while (temp)
-	{
-		printf("s_b: %d\n", temp->value);
-		temp = temp->next;
-	}
-	temp = *s_a;
-	while (temp)
-	{
-		printf("s_a: %d\n", temp->value);
-		temp = temp->next;
-	}
-	printf("\n");
 	apply_rotate(s_a, &ca, 1);
 	apply_rotate(s_b, &cb, 0);
 	apply_pa(s_b, s_a);

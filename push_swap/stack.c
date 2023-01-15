@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 12:30:06 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/08 14:58:16 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:53:47 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_stack	*nbrs_to_stack(int argc, char **argv)
 	while (i < argc)
 	{
 		if (i == 1)
-			s_a = create_node((int)ft_atoi(argv[i]));	
+			s_a = create_node((int)ft_atoi(argv[i]));
 		else
 			add_node_to_list(&s_a, create_node((int)ft_atoi(argv[i])));
 		i++;

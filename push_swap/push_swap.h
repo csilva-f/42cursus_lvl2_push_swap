@@ -6,7 +6,7 @@
 /*   By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:46:42 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/14 23:38:30 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:48:48 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ void		execute_positioning(t_stack **s_a, t_stack **s_b);
 void		reorder(t_stack **s_a, int size_a, int l_ind);
 void		sort_more_than_3(t_stack **s_a, t_stack **s_b);
 void		push_swap(t_stack **s_a, t_stack **s_b);
-/* int			main(int argc, char **argv); */
+void		free_s(t_stack **list);
 
 #endif
