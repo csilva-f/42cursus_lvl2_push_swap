@@ -45,9 +45,9 @@ void	add_node_to_list(t_stack **list, t_stack *node)
 {
 	t_stack	*last_node;
 
-	if (!node || !*list)
+	if (!node || !(*list))
 	{
-		if (!*list)
+		if (!(*list))
 			*list = node;
 		return ;
 	}
@@ -62,10 +62,10 @@ t_stack	*nbrs_to_stack(int argc, char **argv)
 
 	s_a = NULL;
 	i = 1;
-	while (i <= argc)
+	while (i < argc)
 	{
 		if (i == 1)
-			s_a = create_node((int)ft_atoi(argv[i]));
+			s_a = create_node((int)ft_atoi(argv[i]));	
 		else
 			add_node_to_list(&s_a, create_node((int)ft_atoi(argv[i])));
 		i++;

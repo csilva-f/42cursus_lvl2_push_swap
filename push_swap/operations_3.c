@@ -13,15 +13,15 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void	apply_pb(t_stack *s_a, t_stack *s_b)
+void	apply_pb(t_stack **s_a, t_stack **s_b)
 {
 	t_stack	*temp;
 
-	if (!s_b)
+	if (*s_a == NULL)
 		return ;
-	temp = s_b->next;
-	s_b->next = s_a;
-	s_a = s_b;
-	s_b = temp;
+	temp = (*s_a)->next;
+	(*s_a)->next = *s_b;
+	*s_b = *s_a;
+	*s_a = temp;
 	write(1, "pb\n", 3);
 }

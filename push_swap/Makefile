@@ -6,43 +6,31 @@
 #    By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 19:02:20 by csilva-f          #+#    #+#              #
-#    Updated: 2022/12/21 22:45:02 by csilva-f         ###   ########.fr        #
+#    Updated: 2023/01/14 23:31:59 by csilva-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = push_swap
 CC = clang
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra
 
-SERVER = server
-CLIENT = client
-SRCS_SERVER = server.c
-SRCS_CLIENT = client.c
-SRCS_SERVER_BONUS = server_bonus.c
-SRCS_CLIENT_BONUS = client_bonus.c
+SRCS = index_position.c main.c operations.c operations_2.c operations_3.c sort_stack.c \
+	   sort_stack_2.c sort_stack_3.c stack.c stack_2.c
 
-OBJS_SERVER = $(SRCS_SERVER:.c=.o)
-OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
-OBJS_SERVER_BONUS = $(SRCS_SERVER_BONUS:.c=.o)
-OBJS_CLIENT_BONUS = $(SRCS_CLIENT_BONUS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
-NAME = $(SERVER) $(CLIENT)
 
 all: $(NAME)
 
-$(NAME): $(OBJS_SERVER) $(OBJS_CLIENT) $(LIBFT)
-		${CC} ${OBJS_SERVER} libft/libft.a -o ${SERVER}
-		${CC} ${OBJS_CLIENT} libft/libft.a -o ${CLIENT}
+$(NAME): $(OBJS) $(LIBFT)
+		${CC} ${FLAGS} ${OBJS} ${LIBFT} -o ${NAME}
 
 $(LIBFT):
 		${MAKE} -C ./libft
 
-bonus: ${OBJS_SERVER_BONUS} ${OBJS_CLIENT_BONUS} ${LIBFT}
-		${CC} ${OBJS_SERVER_BONUS} libft/libft.a -o ${SERVER}
-		${CC} ${OBJS_CLIENT_BONUS} libft/libft.a -o ${CLIENT}
-
 clean:	
 		$(MAKE) clean -C ./libft
-		rm -rf ${OBJS_SERVER} ${OBJS_CLIENT} ${OBJS_SERVER_BONUS} ${OBJS_CLIENT_BONUS}
+		rm -rf ${OBJS}
 
 fclean:	clean
 		$(MAKE) fclean -C ./libft

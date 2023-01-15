@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 #include "libft/libft.h"
+#include <stdio.h>
 
 void	assign_indexes(t_stack *s_a, int size)
 {
@@ -19,7 +20,7 @@ void	assign_indexes(t_stack *s_a, int size)
 	t_stack	*temp;
 	t_stack	*lowest;
 
-	while (--size >= 0)
+	while (--size > 0)
 	{
 		lowest = NULL;
 		temp = s_a;
@@ -38,6 +39,6 @@ void	assign_indexes(t_stack *s_a, int size)
 				temp = temp->next;
 		}
 		if (lowest)
-			lowest->index = count_stack_nbrs(s_a) - size;
+			lowest->index = count_stack_nbrs(s_a) - size + 1;
 	}
 }

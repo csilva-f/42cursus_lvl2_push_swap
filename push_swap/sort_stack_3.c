@@ -14,26 +14,26 @@
 #include "libft/libft.h"
 #include <limits.h>
 
-void	find_cost_to_move(t_stack *s_b, int size_a)
+void	find_cost_to_move(t_stack **s_b, int size_a)
 {
 	t_stack	*temp;
 
-	temp = s_b;
+	temp = *s_b;
 	while (temp)
 	{
-		if (temp->posit > count_stack_nbrs(s_b) / 2)
-			temp->cost_b = (temp->posit - count_stack_nbrs(s_b)) * -1;
+		if (temp->posit > count_stack_nbrs(*s_b) / 2)
+			temp->cost_b = (temp->posit - count_stack_nbrs(*s_b));
 		else
 			temp->cost_b = temp->posit;
 		if (temp->t_posit > size_a / 2)
-			temp->cost_a = (temp->cost_a - size_a) * -1;
+			temp->cost_a = (temp->t_posit - size_a);
 		else
 			temp->cost_a = temp->t_posit;
 		temp = temp->next;
 	}
 }
 
-void	apply_rotate(t_stack *stack, int *cost, int is_sa)
+void	apply_rotate(t_stack **stack, int *cost, int is_sa)
 {
 	while (*cost != 0)
 	{
@@ -54,9 +54,10 @@ void	apply_rotate(t_stack *stack, int *cost, int is_sa)
 			(*cost)--;
 		}
 	}
+	
 }
 
-void	apply_sim_rotate(t_stack *s_a, t_stack *s_b, int *ca, int *cb)
+void	apply_sim_rotate(t_stack **s_a, t_stack **s_b, int *ca, int *cb)
 {
 	if (*ca < 0 && *cb < 0)
 	{
@@ -72,16 +73,16 @@ void	apply_sim_rotate(t_stack *s_a, t_stack *s_b, int *ca, int *cb)
 	}
 }
 
-void	execute_positioning(t_stack *s_a, t_stack *s_b)
+void	execute_positioning(t_stack **s_a, t_stack **s_b)
 {
 	t_stack	*temp;
 	int		l_cost;
 	int		ca;
 	int		cb;
 
-	temp = s_b;
+	temp = *s_b;
 	l_cost = INT_MAX;
-	while (s_b)
+	while (temp)
 	{
 		if (abs(temp->cost_a) + abs(temp->cost_b) < l_cost)
 		{
@@ -91,20 +92,35 @@ void	execute_positioning(t_stack *s_a, t_stack *s_b)
 		}
 		temp = temp->next;
 	}
+
 	if ((ca < 0 && cb < 0) || (ca > 0 && cb > 0))
 		apply_sim_rotate(s_a, s_b, &ca, &cb);
-	apply_sim_rotate(s_a, s_b, &ca, &cb);
-	apply_pa(s_a, s_b);
+	temp = *s_b;
+	while (temp)
+	{
+		printf("s_b: %d\n", temp->value);
+		temp = temp->next;
+	}
+	temp = *s_a;
+	while (temp)
+	{
+		printf("s_a: %d\n", temp->value);
+		temp = temp->next;
+	}
+	printf("\n");
+	apply_rotate(s_a, &ca, 1);
+	apply_rotate(s_b, &cb, 0);
+	apply_pa(s_b, s_a);
 }
 
-void	reorder(t_stack *s_a, int size_a, int l_ind)
+void	reorder(t_stack **s_a, int size_a, int l_ind)
 {
 	int		l_pos;
 	t_stack	*temp;
 
 	positions(s_a);
-	temp = s_a;
-	l_pos = s_a->posit;
+	temp = *s_a;
+	l_pos = temp->posit;
 	while (temp)
 	{
 		if (temp->index < l_ind)

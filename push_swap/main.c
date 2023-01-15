@@ -6,10 +6,11 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:42:08 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/14 15:18:19 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:51:48 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libftprintf/ft_printf.h"
 #include "push_swap.h"
 #include "libft/libft.h"
 
@@ -63,7 +64,7 @@ int	check_input(int argc, char **argv)
 	}
 	return (1);
 }
-
+#include <stdio.h>
 int	main(int argc, char **argv)
 {
 	t_stack	*s_a;
@@ -74,8 +75,13 @@ int	main(int argc, char **argv)
 	if (check_input(argc, argv) == 0)
 		handle_errors();
 	s_a = nbrs_to_stack(argc, argv);
-	assign_indexes(s_a, count_stack_nbrs(s_a));
+	assign_indexes(s_a, count_stack_nbrs(s_a) + 1);
 	s_b = NULL;
-	push_swap(s_a, s_b);
+	push_swap(&s_a, &s_b);
+	while (s_a->next != NULL)
+	{
+		printf("%d\n", s_a->value);
+		s_a = s_a->next;
+	}
 	return (0);
 }

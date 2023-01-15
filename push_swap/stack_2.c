@@ -17,7 +17,7 @@ t_stack	*get_penult_node(t_stack *list)
 {
 	while (list)
 	{
-		if (list->next->next == NULL)
+		if (list->next->next == NULL && list->next == NULL)
 			break ;
 		list = list->next;
 	}
