@@ -6,7 +6,7 @@
 /*   By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:08:46 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/15 19:53:28 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/24 22:37:26 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_BONUS_H
 
 # include "libft/libft.h"
+# include "get_next_line/get_next_line.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>

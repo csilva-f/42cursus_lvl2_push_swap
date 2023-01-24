@@ -6,7 +6,7 @@
 #    By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 19:02:20 by csilva-f          #+#    #+#              #
-#    Updated: 2023/01/14 23:31:59 by csilva-f         ###   ########.fr        #
+#    Updated: 2023/01/24 23:51:25 by csilva-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,21 +19,25 @@ SRCS = index_position.c main.c operations.c operations_2.c operations_3.c sort_s
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
+GNL = get_next_line/get_next_line.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT) $(GNL)
 		${CC} ${FLAGS} ${OBJS} ${LIBFT} -o ${NAME}
 
 $(LIBFT):
 		${MAKE} -C ./libft
 
+$(GNL):
+		${MAKE} -C ./get_next_line
+
 clean:	
-		$(MAKE) clean -C ./libft
+		$(MAKE) clean -C ./libft ./get_next_line
 		rm -rf ${OBJS}
 
 fclean:	clean
-		$(MAKE) fclean -C ./libft
+		$(MAKE) fclean -C ./libft ./get_next_line
 		rm -rf $(NAME)
 
 re:	fclean all

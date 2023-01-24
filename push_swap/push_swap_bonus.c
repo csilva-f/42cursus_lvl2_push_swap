@@ -6,10 +6,11 @@
 /*   By: csilva-f <csilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:04:14 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/15 19:33:31 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/24 23:51:12 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
 #include "push_swap_bonus.h"
 
@@ -74,12 +75,22 @@ int	check_input(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_stack	*s_a;
+	t_stack	*s_b;
+	char	*str;
 
 	if (argc < 2)
 		return (0);
 	if (check_input(argc, argv) == 0)
+	{
 		handle_errors();
+		return (0);
+	}
 	s_a = nbrs_to_stack(argc, argv);
+	s_b = NULL;
+	while ((str = get_next_line(1)))
+	{
+		if (execute_moves)	
+	}
 	return (0);
 }
 
