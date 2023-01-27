@@ -6,11 +6,10 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 19:42:08 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/15 18:05:12 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/26 22:14:39 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libftprintf/ft_printf.h"
 #include "push_swap.h"
 #include "libft/libft.h"
 

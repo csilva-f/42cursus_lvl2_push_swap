@@ -6,7 +6,7 @@
 /*   By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:08:46 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/24 22:37:26 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/26 23:48:37 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_BONUS_H
 
 # include "libft/libft.h"
-# include "get_next_line/get_next_line.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -51,5 +50,8 @@ void		apply_rrb(t_stack **s_b);
 void		apply_rrr(t_stack **s_a, t_stack **s_b);
 void		apply_pa(t_stack **s_b, t_stack **s_a);
 void		apply_pb(t_stack **s_a, t_stack **s_b);
+void		execute_moves(char *str, t_stack **s_a, t_stack **s_b);
+//int			check_moves(char *str);
+void		read_moves(t_stack **s_a, t_stack **s_b);
 
 #endif

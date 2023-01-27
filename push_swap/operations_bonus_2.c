@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 19:37:57 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/15 19:39:31 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/26 23:53:34 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ void	apply_rra(t_stack **s_a)
 	t_stack	*temp_pen;
 	t_stack	*temp_tail;
 	t_stack	*temp;
-
-	temp_pen = get_penult_node(*s_a);
-	temp_tail = get_last_node(*s_a);
-	temp = *s_a;
-	*s_a = temp_tail;
-	(*s_a)->next = temp;
-	temp_pen->next = NULL;
+	
+	if (count_stack_nbrs(*s_a) > 1)
+	{
+		temp_pen = get_penult_node(*s_a);
+		temp_tail = get_last_node(*s_a);
+		temp = *s_a;
+		*s_a = temp_tail;
+		(*s_a)->next = temp;
+		temp_pen->next = NULL;
+	}
 }
 
 void	apply_rrb(t_stack **s_b)
@@ -39,12 +42,15 @@ void	apply_rrb(t_stack **s_b)
 	t_stack	*temp_tail;
 	t_stack	*temp;
 
-	temp_pen = get_penult_node(*s_b);
-	temp_tail = get_last_node(*s_b);
-	temp = *s_b;
-	*s_b = temp_tail;
-	(*s_b)->next = temp;
-	temp_pen->next = NULL;
+	if (count_stack_nbrs(*s_b))
+	{
+		temp_pen = get_penult_node(*s_b);
+		temp_tail = get_last_node(*s_b);
+		temp = *s_b;
+		*s_b = temp_tail;
+		(*s_b)->next = temp;
+		temp_pen->next = NULL;
+	}
 }
 
 void	apply_rrr(t_stack **s_a, t_stack **s_b)
