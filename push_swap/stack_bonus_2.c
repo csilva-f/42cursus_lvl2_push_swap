@@ -6,13 +6,13 @@
 /*   By: csilva-f <csilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 19:41:13 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/26 23:49:08 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:22:06 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/get_next_line.h"
 #include "libft/libft.h"
 #include "push_swap_bonus.h"
-#include <unistd.h>
 
 t_stack	*get_penult_node(t_stack *list)
 {
@@ -36,7 +36,7 @@ void	free_s(t_stack **list)
 	list = NULL;
 }
 
-void	execute_moves(char *str, t_stack **s_a, t_stack **s_b)
+int	execute_moves(char *str, t_stack **s_a, t_stack **s_b)
 {
 	if (ft_strncmp(str, "sa\n", 3) == 0)
 		apply_sa(s_a);
@@ -60,9 +60,12 @@ void	execute_moves(char *str, t_stack **s_a, t_stack **s_b)
 		apply_pa(s_b, s_a);
 	else if (ft_strncmp(str, "pb\n", 3) == 0)
 		apply_pb(s_a, s_b);
+	else
+		return (0);
+	return (1);
 }
 
-void	read_moves(t_stack **s_a, t_stack **s_b)
+int	read_moves(t_stack **s_a, t_stack **s_b)
 {
 	char	*str;
 
@@ -71,7 +74,39 @@ void	read_moves(t_stack **s_a, t_stack **s_b)
 		str = get_next_line(STDIN_FILENO);
 		if (!str)
 			break ;
-		execute_moves(str, s_a, s_b);
+		if (execute_moves(str, s_a, s_b) == 0)
+		{
+			free(str);
+			return (0);
+		}
 		free(str);
 	}
+	return (1);
 }
+
+/*int	check_moves(char *str)
+{
+	if (ft_strncmp(str, "sa\n", 3) == 0)
+		return (1);
+	else if (ft_strncmp(str, "sb\n", 3) == 0)
+		return (1);
+	else if (ft_strncmp(str, "ss\n", 3) == 0)
+		return (1);
+	else if (ft_strncmp(str, "ra\n", 3) == 0)
+		return (1);
+	else if (ft_strncmp(str, "rb\n", 3) == 0)
+		return (1);
+	else if (ft_strncmp(str, "rr\n", 3) == 0)
+		return (1);
+	else if (ft_strncmp(str, "rra\n", 4) == 0)
+		return (1);
+	else if (ft_strncmp(str, "rrb\n", 4) == 0)
+		return (1);
+	else if (ft_strncmp(str, "rrr\n", 4) == 0)
+		return (1);
+	else if (ft_strncmp(str, "pa\n", 3) == 0)
+		return (1);
+	else if (ft_strncmp(str, "pb\n", 3) == 0)
+		return (1);
+	return (0);
+}*/

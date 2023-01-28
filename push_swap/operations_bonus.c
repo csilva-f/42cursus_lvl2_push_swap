@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 19:34:39 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/26 23:55:33 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:38:27 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	apply_sa(t_stack **s_a)
 {
 	int	aux;
-	
+
 	if (count_stack_nbrs(*s_a) > 1)
 	{
 		aux = (*s_a)->value;
@@ -32,7 +32,7 @@ void	apply_sb(t_stack **s_b)
 {
 	int	aux;
 
-	if (count_stack_nbrs(*s_b))
+	if (count_stack_nbrs(*s_b) > 1)
 	{
 		aux = (*s_b)->value;
 		(*s_b)->value = (*s_b)->next->value;

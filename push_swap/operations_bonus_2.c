@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 19:37:57 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/26 23:53:34 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:37:57 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	apply_rra(t_stack **s_a)
 	t_stack	*temp_pen;
 	t_stack	*temp_tail;
 	t_stack	*temp;
-	
+
 	if (count_stack_nbrs(*s_a) > 1)
 	{
 		temp_pen = get_penult_node(*s_a);
@@ -42,7 +42,7 @@ void	apply_rrb(t_stack **s_b)
 	t_stack	*temp_tail;
 	t_stack	*temp;
 
-	if (count_stack_nbrs(*s_b))
+	if (count_stack_nbrs(*s_b) > 1)
 	{
 		temp_pen = get_penult_node(*s_b);
 		temp_tail = get_last_node(*s_b);

@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 18:15:15 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/26 23:58:59 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:38:48 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	apply_sa(t_stack **s_a, int is_sa)
 {
 	int	aux;
-	
+
 	if (count_stack_nbrs(*s_a) > 1)
 	{
 		aux = (*s_a)->value;

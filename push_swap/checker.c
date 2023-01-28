@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:04:14 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/26 23:48:15 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/28 20:18:20 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft/get_next_line_bonus.h"
 #include "libft/libft.h"
 #include "push_swap_bonus.h"
-#include <unistd.h>
 
 void	handle_errors(void)
 {
@@ -78,6 +77,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*s_a;
 	t_stack	*s_b;
+	int		n;
 
 	if (argc < 2)
 		return (0);
@@ -88,10 +88,12 @@ int	main(int argc, char **argv)
 	}
 	s_a = nbrs_to_stack(argc, argv);
 	s_b = NULL;
-	read_moves(&s_a, &s_b);
-	if (is_sorted(s_a) && !s_b)
+	n = read_moves(&s_a, &s_b);
+	if (is_sorted(s_a) && !s_b && n == 1)
 		write(1, "OK\n", 3);
-	else
+	else if (n == 1)
 		write(1, "KO\n", 3);
+	else
+		write(1, "Error\n", 6);
 	return (0);
 }

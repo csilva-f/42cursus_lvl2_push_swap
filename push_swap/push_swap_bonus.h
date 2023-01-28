@@ -6,7 +6,7 @@
 /*   By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:08:46 by csilva-f          #+#    #+#             */
-/*   Updated: 2023/01/26 23:48:37 by csilva-f         ###   ########.fr       */
+/*   Updated: 2023/01/28 19:22:17 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ void		apply_rrb(t_stack **s_b);
 void		apply_rrr(t_stack **s_a, t_stack **s_b);
 void		apply_pa(t_stack **s_b, t_stack **s_a);
 void		apply_pb(t_stack **s_a, t_stack **s_b);
-void		execute_moves(char *str, t_stack **s_a, t_stack **s_b);
+int			execute_moves(char *str, t_stack **s_a, t_stack **s_b);
 //int			check_moves(char *str);
-void		read_moves(t_stack **s_a, t_stack **s_b);
+//int			read_check_moves(void);
+int			read_moves(t_stack **s_a, t_stack **s_b);
 
 #endif
